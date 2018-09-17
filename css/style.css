@@ -1,0 +1,22 @@
+body{
+    background-color: lavenderblush
+}
+
+.main-container{
+    display: inline-flex;
+}
+
+.card{
+    width: 60%;
+}
+.player1Attack{
+    margin: 20px;
+}
+
+.player2Attack{
+    margin: 20px;
+}
+
+.btn{
+    margin: 10px;
+}

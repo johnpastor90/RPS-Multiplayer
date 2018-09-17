@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Tracker</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- LINK TO FIREBASE GOES HERE -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <div class="jumbotron jumbotron-fluid" style="background-color:goldenrod">
+        <div class="banner">
+            <h1 class="display-4">Rock, Paper, Scissors!</h1>
+            <p class="lead">Play with a friend!</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+    <div class="player1Attacks">
+        <button type="button" class="btn btn-success" id="p1Rock">Rock</button>
+        <button type="button" class="btn btn-success" id="p1Paper">Paper</button>
+        <button type="button" class="btn btn-success" id="p1Scissors">Scissors</button>
+    </div>
+    <br>
+    <div class="player2Attacks">
+        <button type="button" class="btn btn-danger" id="p2Rock">Rock</button>
+        <button type="button" class="btn btn-danger" id="p2Paper">Paper</button>
+        <button type="button" class="btn btn-danger" id="p2Scissors">Scissors</button>
+
+    </div>
+
+    <div class="card">
+            <div class="card-header">
+              Score:
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <h1 class="wp1">Wins Player 1:</h1>
+                <h1 class="lp1">Losses Player 1:</h1>
+                <br>
+                <h1 class="wp2">Wins Player 2:</h1>
+                <h1 class="lp2">Losses Player 2:</h1>
+              </blockquote>
+            </div>
+          </div>
+
+</div>
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCef2Ac3hzCKJfcQ2sxxDFd2ek1RI6lG9g",
+            authDomain: "rpsgame-b179c.firebaseapp.com",
+            databaseURL: "https://rpsgame-b179c.firebaseio.com",
+            projectId: "rpsgame-b179c",
+            storageBucket: "",
+            messagingSenderId: "1073418947527"
+        };
+        firebase.initializeApp(config);
+
+
+        //////////////////////////////////////
+        $("#submit").on("click", function (event) {
+            // Don't refresh the page!
+            event.preventDefault();
+
+            var database = firebase.database();
+            var player1Wins = $("#Wins").val().trim();
+            var player1Lose = $("#Losses").val().trim();
+            var player1Attack = $("#Attack").val().trim();
+
+            var player2Wins = $("#Wins").val().trim();
+            var player2Lose = $("#Losses").val().trim();
+            var player2Attack = $("#Attack").val().trim();
+
+
+            database.ref('/train_times').push({
+                Wins: Wins,
+                Losses: Losses,
+                Attack: Attack,
+                Frequency: Frequency
+            });
+         
+
+            
+
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
